@@ -6,23 +6,28 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ISIUniversity">
+        android:theme="@style/Theme.ISIUniversity"
+        android:usesCleartextTraffic="true">
         <activity
-            android:name=".view.IntroActivity"
+            android:name=".view.ProcessInstanceActivity"
             android:exported="false" />
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".view.AccountActivity"
             android:exported="false" />
         <activity
-            android:name=".view.WelcomeScreenActivity"
+            android:name=".view.ProcessActivity"
             android:exported="false" />
+        <activity
+            android:name=".view.HomeActivity"
+            android:exported="false" />
+        <activity android:name=".view.IntroActivity" />
+        <activity android:name=".view.LoginActivity" />
+        <activity android:name=".view.WelcomeScreenActivity" />
         <activity
             android:name=".view.SplashScreenActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,5 +36,7 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

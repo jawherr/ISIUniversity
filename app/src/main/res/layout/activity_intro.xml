@@ -27,9 +27,9 @@
         android:layout_marginBottom="16dp"
         android:background="#fff"
         android:drawableRight="@drawable/ic_arrow_forward_black_24dp"
-        android:drawableTint="@color/white"
+        android:drawableTint="@color/purple_500"
         android:text="Next"
-        android:textColor="@color/white"
+        android:textColor="@color/purple_500"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -61,7 +61,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="64dp"
         android:background="@drawable/btn_gradient_style"
-        android:text="Get Started"
+        android:text="Commencer"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +70,7 @@
     <TextView
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="@color/design_default_color_primary"
+        android:textColor="@color/purple_500"
         android:id="@+id/tv_skip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -18,7 +18,7 @@ public class SplashScreenActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if(SharedPrefManager.getInstance(SplashScreenActivity.this).isLoggedIn()) {
-                    startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
+                    startActivity(new Intent(SplashScreenActivity.this, HomeActivity.class));
                     finish();
                 } else if(SharedPrefManager.getInstance(SplashScreenActivity.this).isLoggedOut()){
                     startActivity(new Intent(SplashScreenActivity.this, LoginActivity.class));

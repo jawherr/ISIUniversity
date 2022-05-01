@@ -23,7 +23,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
         android:text="TextView"
-        android:textColor="@color/design_default_color_primary"
+        android:textColor="@color/purple_500"
         android:textSize="32dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline"

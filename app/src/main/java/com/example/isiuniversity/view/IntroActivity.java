@@ -74,9 +74,9 @@ public class IntroActivity extends AppCompatActivity {
         // fill list screen
 
         final List<ScreenItem> mList = new ArrayList<>();
-        mList.add(new ScreenItem("Instant messaging","Chat with whoever you want (Doctors/Friends/Patients with the same medical case) "+"\n" +"A new user experience "+"\n"+"A simple and modern design",R.drawable.img1));
-        mList.add(new ScreenItem("Immediate help","Consult a doctor in a few minutes and experience an"+"\n"+"Advanced doctor-patient interaction and communication",R.drawable.img2));
-        mList.add(new ScreenItem("Secure payment","Easy and secure digital payment for doctors, free for the assistants (A.P.S) and patient. High price transparency and quality assistance",R.drawable.img3));
+        mList.add(new ScreenItem("Instantanée demande","L'étudiant est permet de remplir un formulaire demande de presence prédéfini est envoyé d'apres "+"\n" +"l'application a l'agent",R.drawable.gif1));
+        mList.add(new ScreenItem("Aide immédiate","En quelques minutes et faites l'expérience d'une interaction et  "+"\n"+"d'une communication avancée agent-étudiant",R.drawable.gif2));
+        mList.add(new ScreenItem("Notifier l'etudiant","Notifier l'etudiant lorsque l'agent a modifier l'etat de demande",R.drawable.gif3));
 
         // setup viewpager
         screenPager =findViewById(R.id.screen_viewpager);

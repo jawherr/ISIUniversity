@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.HomeActivity">
+    <com.example.isiuniversity.view.StatusBarView
+        android:id="@+id/status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_style"/>
+
+    <!--Toolbar-->
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:background="@drawable/background_style">
+
+
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:background="@null"
+            android:src="@drawable/ic_settings" />
+
+        <ImageButton
+            android:id="@+id/btnSync"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:layout_toStartOf="@id/btnSettings"
+            android:background="@null"
+            android:src="@drawable/ic_sync" />
+
+
+        <TextView
+            android:id="@+id/nameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_toEndOf="@+id/profileIv"
+            android:fontFamily="@font/ubuntu_bold"
+            android:text="name"
+            android:textColor="@color/white" />
+
+
+        <TextView
+            android:id="@+id/typeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameTv"
+            android:layout_toEndOf="@id/profileIv"
+            android:fontFamily="@font/ubuntu_regular"
+            android:text="type"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/emailTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/typeTv"
+            android:visibility="visible"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_toEndOf="@id/profileIv"
+            android:fontFamily="@font/ubuntu_regular"
+            android:text="email"
+            android:textColor="@color/white" />
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/profileIv"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="@dimen/_45sdp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/user_profil"
+            app:civ_border_width="2dp" />
+
+    </RelativeLayout>
+
+
+    <!--LayoutUI-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/toolbarRl"
+        android:layout_marginBottom="50dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@+id/home_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="10dp">
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

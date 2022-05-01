@@ -4,8 +4,8 @@
     <corners android:radius="6dp"></corners>
 
 
-    <gradient android:startColor="@color/design_default_color_primary"
-        android:endColor="@color/cardview_dark_background" />
+    <gradient android:startColor="@color/purple_500"
+        android:endColor="@color/purple_200" />
 
 
 </shape>

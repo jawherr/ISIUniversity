@@ -13,19 +13,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/design_default_color_primary"
+            android:textColor="@color/purple_500"
             android:textStyle="bold"
             android:textSize="25sp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
-            android:text="Welcome to SaheelhApp"/>
-
-        <pl.droidsonroids.gif.GifImageView
+            android:text="Bienvenue à ISIUniversity"/>
+        <androidx.cardview.widget.CardView
             android:layout_width="300dp"
             android:layout_height="300dp"
+            android:elevation="12dp"
+            android:id="@+id/view2"
             android:layout_gravity="center_horizontal"
             android:layout_margin="50dp"
-            android:src="@drawable/logouniversity"/>
+            app:cardCornerRadius="40dp"
+            android:layout_centerHorizontal="true">
+            <pl.droidsonroids.gif.GifImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/logouniversity"/>
+        </androidx.cardview.widget.CardView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,7 +40,7 @@
             android:textSize="16sp"
             android:gravity="center"
             android:layout_gravity="center_horizontal"
-            android:text="Read our Privacy Policy. Tab ''Agree and continue'' to accept the Terms of Survice"/>
+            android:text="Lisez notre politique de confidentialité. Onglet ''Accepter et continuer'' pour accepter les Conditions d'utilisation"/>
 
         <Button
             android:id="@+id/btn_agree"
@@ -43,7 +50,7 @@
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
             android:textColor="@android:color/white"
-            android:text="Agree and continue" />
+            android:text="Accepter et continuer"/>
 
     </LinearLayout>
 
@@ -58,13 +65,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:text="from"/>
+            android:text="depuis"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@color/design_default_color_primary"
+            android:textColor="@color/purple_500"
             android:text="ISI ARIANA"/>
     </LinearLayout>
 </RelativeLayout>
