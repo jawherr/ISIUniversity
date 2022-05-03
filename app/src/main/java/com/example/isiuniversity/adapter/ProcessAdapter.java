@@ -33,7 +33,7 @@ public class ProcessAdapter extends RecyclerView.Adapter<ProcessAdapter.ViewHold
    @Override
    public void onBindViewHolder(ViewHolder holder, int position) {
       holder.mTextView.setText(mDataset[position]);
-      holder.mTextView.setTextColor(Color.WHITE);
+      holder.mTextView.setTextColor(Color.BLACK);
    }
 
    @Override

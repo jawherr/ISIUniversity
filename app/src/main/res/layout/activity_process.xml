@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@color/purple_500"
+    android:background="@color/colorPrimary"
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:transitionName="@string/transition_string">
@@ -33,12 +33,17 @@
 
             <Button
                 android:id="@+id/request_button"
-                style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_below="@+id/forget_password_link"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
                 android:text="@string/action_send"
-                android:textStyle="bold" />
+                android:textAllCaps="false"
+                android:textSize="15dp"
+                android:textColor="@android:color/background_light"
+                android:background="@drawable/background_send"
+                />
         </LinearLayout>
     </ScrollView>
 

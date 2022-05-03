@@ -36,7 +36,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class ProcessActivity extends AppCompatActivity {
+public class ProcessActivity extends AppCompatActivity{
 
     private LinearLayout LayoutView;
     private View FormView;
@@ -48,12 +48,15 @@ public class ProcessActivity extends AppCompatActivity {
     private List<String> types = new ArrayList<String>();
     private String username;
     private String password;
-    private String process_id;
+    private String process_id,process_name;
     private Boolean test=false;
     private int color;
     private int icon;
     private int auth;
     private CheckBox c;
+    private EditText ed;
+    private String val;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +72,8 @@ public class ProcessActivity extends AppCompatActivity {
         }
 
         process_id = getIntent().getStringExtra("process_id");
-        color = getIntent().getIntExtra("color", R.color.purple_500);
+        process_name = getIntent().getStringExtra("process_name");
+        color = getIntent().getIntExtra("color", R.color.colorPrimary);
         icon = getIntent().getIntExtra("icon", R.drawable.ic_copy);
 
         LayoutView = findViewById(R.id.process_layout);
@@ -107,18 +111,29 @@ public class ProcessActivity extends AppCompatActivity {
                 String variables = "{\n\t";
                 String suffix = "\n}";
                 if(c.isChecked()) {
-                    System.out.println("test="+test);
                     test=true;
                 }
                 else{
-                    System.out.println("test="+test);
                     test=false;
                 }
-                variables += "\"valid\":{\"type\":\"Boolean\",\"value\":" + test + ",\"valueInfo\":{}}" + suffix;
-                json_string += variables;
-                json_string += ",\n\"businessKey\":\"" + username + "\"\n}";
-                Log.v("JSON Request Body", json_string);
-                System.out.println("test="+test);
+                if(process_name.equals("Verification demande")){
+                    variables += "\"valid\":{\"type\":\"Boolean\",\"value\":" + test + ",\"valueInfo\":{}}" + suffix;
+                    json_string += variables;
+                    json_string += ",\n\"businessKey\":\"" + username + "\"\n}";
+                    Log.v("JSON Request Body", json_string);
+                } else if(process_name.equals("Preparer Attestation")){
+                    variables += "\"modifiernote\":{\"type\":\"Boolean\",\"value\":" + test + ",\"valueInfo\":{}}" + suffix;
+                    json_string += variables;
+                    json_string += ",\n\"businessKey\":\"" + username + "\"\n}";
+                    Log.v("JSON Request Body", json_string);
+                } else {
+                    val=ed.getText().toString();
+                    System.out.println("val="+val);
+                    variables += "\"justificatif\":{\"type\":\"String\",\"value\":\"" + val + "\",\"valueInfo\":{}}" + suffix;
+                    json_string += variables;
+                    json_string += ",\n\"businessKey\":\"" + username + "\"\n}";
+                    Log.v("JSON Request Body", json_string);
+                }
                 try {
                     OkHttpClient client = new OkHttpClient();
                     MediaType mediaType = MediaType.parse("application/json");
@@ -143,23 +158,30 @@ public class ProcessActivity extends AppCompatActivity {
                 }
             }
             else if(username.equals("enseignant")){
-
                 String json_string = "{\n\"variables\":";
                 String variables = "{\n\t";
                 String suffix = "\n}";
                 if(c.isChecked()) {
-                    System.out.println("test="+test);
                     test=true;
                 }
                 else{
-                    System.out.println("test="+test);
                     test=false;
                 }
-                variables += "\"valid\":{\"type\":\"Boolean\",\"value\":" + test + ",\"valueInfo\":{}}" + suffix;
-                json_string += variables;
-                json_string += ",\n\"businessKey\":\"" + username + "\"\n}";
-                Log.v("JSON Request Body", json_string);
-                System.out.println("test="+test);
+                if(process_name.equals("Vérifier la copie")){
+                    variables += "\"modifiernote\":{\"type\":\"Boolean\",\"value\":" + test + ",\"valueInfo\":{}}" + suffix;
+                    json_string += variables;
+                    json_string += ",\n\"businessKey\":\"" + username + "\"\n}";
+                    Log.v("JSON Request Body", json_string);
+                } else {
+                    val=ed.getText().toString();
+                    int num=12;
+                    System.out.println("val="+val);
+                    variables += "\"justificatifNouvelleNote\":{\"type\":\"String\",\"value\":\"" + val + "\",\"valueInfo\":{}},";
+                    variables += "\"nouvellenote\":{\"type\":\"Long\",\"value\":" + num + ",\"valueInfo\":{}}" + suffix;
+                    json_string += variables;
+                    json_string += ",\n\"businessKey\":\"" + username + "\"\n}";
+                    Log.v("JSON Request Body", json_string);
+                }
                 try {
                     OkHttpClient client = new OkHttpClient();
                     MediaType mediaType = MediaType.parse("application/json");
@@ -346,7 +368,6 @@ public class ProcessActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(final Boolean success) {
             if (success) {
-                Toast.makeText(ProcessActivity.this, "Form added successfully !", Toast.LENGTH_SHORT).show();
                 if(username.equals("agent")){
                     String field;
                     String value;
@@ -358,26 +379,30 @@ public class ProcessActivity extends AppCompatActivity {
                         LinearLayout ll = (LinearLayout) findViewById(R.id.form_layout);
                         TextInputLayout til = new TextInputLayout(ProcessActivity.this);
                         til.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                        EditText et = new EditText(ProcessActivity.this);
+                        ed = new EditText(ProcessActivity.this);
                         c = new CheckBox(ProcessActivity.this);
                         TextView e = new TextView(ProcessActivity.this);
-                        et.setId(i);
-                        et.setHint(field);
-                        et.setText(value);
-                        et.setEnabled(false);
+                        ed.setId(i);
+                        ed.setHint(field);
+                        if(!value.equals("null")) {
+                            ed.setEnabled(false);
+                            ed.setText(value);
+                        }
                         int inputType = View.TEXT_ALIGNMENT_CENTER;
                         if (type.equals("String")) {
                             inputType = View.AUTOFILL_TYPE_TEXT;
-                            et.setRawInputType(inputType);
-                            et.setMaxLines(1);
-                            et.setTextColor(getResources().getColor(android.R.color.primary_text_dark));
-                            et.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                            til.addView(et);
+                            ed.setRawInputType(inputType);
+                            ed.setMaxLines(1);
+                            ed.setTextColor(getResources().getColor(android.R.color.primary_text_dark));
+                            ed.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                            til.addView(ed);
                         }
                         else if(type.equals("Boolean")) {
                             e.setText(field);
                             e.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                             c.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                            if(!value.equals("null"))
+                                c.setEnabled(false);
                             til.addView(e);
                             til.addView(c);
                         }
@@ -395,26 +420,30 @@ public class ProcessActivity extends AppCompatActivity {
                         LinearLayout ll = (LinearLayout) findViewById(R.id.form_layout);
                         TextInputLayout til = new TextInputLayout(ProcessActivity.this);
                         til.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                        EditText et = new EditText(ProcessActivity.this);
+                        ed = new EditText(ProcessActivity.this);
                         c = new CheckBox(ProcessActivity.this);
                         TextView e = new TextView(ProcessActivity.this);
-                        et.setId(i);
-                        et.setHint(field);
-                        et.setText(value);
-                        et.setEnabled(false);
+                        ed.setId(i);
+                        ed.setHint(field);
+                        if(!value.equals("null")) {
+                            ed.setEnabled(false);
+                            ed.setText(value);
+                        }
                         int inputType = View.TEXT_ALIGNMENT_CENTER;
                         if (type.equals("String")) {
                             inputType = View.AUTOFILL_TYPE_TEXT;
-                            et.setRawInputType(inputType);
-                            et.setMaxLines(1);
-                            et.setTextColor(getResources().getColor(android.R.color.primary_text_dark));
-                            et.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                            til.addView(et);
+                            ed.setRawInputType(inputType);
+                            ed.setMaxLines(1);
+                            ed.setTextColor(getResources().getColor(android.R.color.primary_text_dark));
+                            ed.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                            til.addView(ed);
                         }
                         else if(type.equals("Boolean")) {
                             e.setText(field);
                             e.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                             c.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                            if(!value.equals("null"))
+                                c.setEnabled(false);
                             til.addView(e);
                             til.addView(c);
                         }

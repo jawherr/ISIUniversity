@@ -4,18 +4,27 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.173" />
+        <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/background_send.xml" value="0.1865" />
         <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/background_style.xml" value="0.173" />
         <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/btn_gradient_style.xml" value="0.173" />
         <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/color_cursor_search.xml" value="0.173" />
         <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/editextborder.xml" value="0.173" />
         <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/ic_arrow_forward_black_24dp.xml" value="0.173" />
         <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/ic_assignment.xml" value="0.1865" />
+        <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/ic_baseline_assignment.xml" value="0.1865" />
+        <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/ic_baseline_play_circle_24.xml" value="0.1865" />
+        <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/ic_baseline_stop_circle_24.xml" value="0.1865" />
         <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/ic_copy.xml" value="0.1865" />
         <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/ic_launcher_background.xml" value="0.173" />
+        <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/ic_start.xml" value="0.1865" />
+        <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/indicator_default.xml" value="0.1865" />
         <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/indicator_selected.xml" value="0.173" />
         <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/indicator_selector.xml" value="0.173" />
         <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/inputs.xml" value="0.173" />
         <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/rounded_box_login.xml" value="0.173" />
+        <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/shape_rect02.xml" value="0.1865" />
+        <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/shape_rect03.xml" value="0.1865" />
+        <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/drawable/shape_rect04.xml" value="0.1865" />
         <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/font/open_sans.xml" value="0.32037037037037036" />
         <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/layout/activity_account.xml" value="0.32708333333333334" />
         <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/layout/activity_home.xml" value="0.25" />
@@ -33,6 +42,9 @@
         <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/menu/menu.xml" value="0.3411458333333333" />
         <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1865" />
         <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1865" />
+        <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/xml/pref_data_sync.xml" value="0.3411458333333333" />
+        <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/xml/pref_general.xml" value="0.3411458333333333" />
+        <entry key="..\:/Document/AndroidStudioProjects/ISIUniversity/app/src/main/res/xml/pref_notification.xml" value="0.3411458333333333" />
       </map>
     </option>
   </component>

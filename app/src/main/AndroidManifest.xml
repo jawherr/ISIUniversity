@@ -21,8 +21,7 @@
             android:name=".view.ProcessActivity"
             android:exported="false" />
         <activity
-            android:name=".view.HomeActivity"
-            android:exported="false" />
+            android:name=".view.HomeActivity"/>
         <activity android:name=".view.IntroActivity" />
         <activity android:name=".view.LoginActivity" />
         <activity android:name=".view.WelcomeScreenActivity" />

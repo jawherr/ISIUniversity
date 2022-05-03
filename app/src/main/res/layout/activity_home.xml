@@ -15,7 +15,7 @@
     <RelativeLayout
         android:id="@+id/toolbarRl"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/background_style">
 
 
@@ -81,31 +81,78 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="@dimen/_45sdp"
             android:layout_marginRight="10dp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:src="@drawable/user_profil"
             app:civ_border_width="2dp" />
+
+
+        <!--Tabs: Products, Orders-->
+        <LinearLayout
+            android:id="@+id/lnTab"
+            android:layout_below="@id/profileIv"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:visibility="gone"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:background="@drawable/shape_rect03"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <!--Products-->
+            <TextView
+                android:id="@+id/tabMyTaskIv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/shape_rect04"
+                android:gravity="center"
+                android:text="My Tasks"
+                android:fontFamily="@font/ubuntu_medium"
+                android:textColor="@color/black"/>
+            <!--Orders-->
+            <TextView
+                android:id="@+id/tabGroupIv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Group Task"
+                android:fontFamily="@font/ubuntu_medium"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
 
     </RelativeLayout>
 
 
     <!--LayoutUI-->
     <ScrollView
+        android:id="@+id/scrollable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_below="@+id/toolbarRl"
-        android:layout_marginBottom="50dp"
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent">
-
         <LinearLayout
-            android:id="@+id/home_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="10dp">
-
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ubuntu_medium"
+                android:layout_marginLeft="@dimen/_10sdp"/>
+            <LinearLayout
+                android:id="@+id/home_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="vertical"/>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

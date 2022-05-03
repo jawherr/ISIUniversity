@@ -59,15 +59,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         int auth = sharedPref.getInt("auth",0);
         if(auth==1)
         {
-            Toast.makeText(this, "Authenticated", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Authenticated", Toast.LENGTH_SHORT).show();
             Intent start = new Intent(LoginActivity.this, HomeActivity.class);
             startActivity(start);
             finish();
         }
-        else
+        /*else
         {
             Toast.makeText(this, "Unauthenticated", Toast.LENGTH_SHORT).show();
-        }
+        }*/
 
 
         setContentView(R.layout.activity_login);
@@ -210,8 +210,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
-            //String  = btoa(mEmail,mPassword);
             SharedPreferences sharedPref = getSharedPreferences("ISIUniversityPerf",Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.putString("username", mEmail);

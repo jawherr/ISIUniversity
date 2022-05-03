@@ -25,6 +25,7 @@
     <string name="action_logout">Logout</string>
     <string name="color_key">color</string>
     <string name="process_key">process</string>
+    <string name="process_name">name</string>
 
     <string name="title_activity_settings">Settings</string>
 

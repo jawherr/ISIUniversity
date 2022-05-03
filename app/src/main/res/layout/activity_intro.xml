@@ -27,9 +27,9 @@
         android:layout_marginBottom="16dp"
         android:background="#fff"
         android:drawableRight="@drawable/ic_arrow_forward_black_24dp"
-        android:drawableTint="@color/purple_500"
+        android:drawableTint="@color/colorPrimary"
         android:text="Next"
-        android:textColor="@color/purple_500"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -70,7 +70,7 @@
     <TextView
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="@color/purple_500"
+        android:textColor="@color/colorPrimary"
         android:id="@+id/tv_skip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

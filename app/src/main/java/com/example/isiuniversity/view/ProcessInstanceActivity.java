@@ -11,6 +11,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.isiuniversity.R;
@@ -30,7 +31,7 @@ public class ProcessInstanceActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    ProcessInstanceTask ProcessInstanceTaskObject = null;
+    private ProcessInstanceTask ProcessInstanceTaskObject = null;
     private String[] mDataset = new String[0];
     private String username;
     private String password;
@@ -56,6 +57,10 @@ public class ProcessInstanceActivity extends AppCompatActivity {
 
         ProcessInstanceTaskObject = new ProcessInstanceTask();
         ProcessInstanceTaskObject.execute();
+    }
+
+    public void back(View view) {
+        finish();
     }
 
     public class ProcessInstanceTask extends AsyncTask<Void, Void, Boolean> {
@@ -116,7 +121,7 @@ public class ProcessInstanceActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(final Boolean success) {
             if (success) {
-                Toast.makeText(ProcessInstanceActivity.this, "Process Instances added successfully !", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ProcessInstanceActivity.this, "Process Instances added successfully !", Toast.LENGTH_SHORT).show();
                 try {
                     JSONObject obj;
                     mDataset = new String[processInstances.length()];
@@ -131,7 +136,7 @@ public class ProcessInstanceActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             } else {
-                Toast.makeText(ProcessInstanceActivity.this, "Process Definitions Failure !", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ProcessInstanceActivity.this, "Process Definitions Failure !", Toast.LENGTH_SHORT).show();
             }
         }
 
