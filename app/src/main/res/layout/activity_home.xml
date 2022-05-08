@@ -153,6 +153,41 @@
                 android:clipToPadding="false"
                 android:gravity="center"
                 android:orientation="vertical"/>
+
+            <LinearLayout
+                android:id="@+id/lnNoProcessClaim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtNameClaimTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:textColor="@color/colorPrimary"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center_horizontal"
+                    android:text="validate your process with ISIUniversity on \nAndroid phone"/>
+
+                <ProgressBar
+                    android:id="@+id/progress_circular"
+                    android:layout_width="wrap_content"
+                    android:visibility="gone"
+                    android:indeterminateTint="@color/colorPrimary"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
         </LinearLayout>
+
     </ScrollView>
+
 </RelativeLayout>

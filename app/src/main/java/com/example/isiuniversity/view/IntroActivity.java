@@ -30,7 +30,6 @@ public class IntroActivity extends AppCompatActivity {
     Animation btnAnim;
     TextView tvSkip;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,14 +104,8 @@ public class IntroActivity extends AppCompatActivity {
                 if (position == mList.size()-1) { // when we rech to the last screen
 
                     // TODO : show the GETSTARTED Button and hide the indicator and the next button
-
-                    loaddLastScreen();
-
-
+                    loadLastScreen();
                 }
-
-
-
             }
         });
 
@@ -122,11 +115,8 @@ public class IntroActivity extends AppCompatActivity {
         tabIndicator.addOnTabSelectedListener(new TabLayout.BaseOnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-
                 if (tab.getPosition() == mList.size()-1) {
-
-                    loaddLastScreen();
-
+                    loadLastScreen();
                 }
 
 
@@ -201,8 +191,7 @@ public class IntroActivity extends AppCompatActivity {
 
     }
 
-    // show the GETSTARTED Button and hide the indicator and the next button
-    private void loaddLastScreen() {
+    private void loadLastScreen() {
 
         btnNext.setVisibility(View.INVISIBLE);
         btnGetStarted.setVisibility(View.VISIBLE);

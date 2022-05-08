@@ -1,5 +1,6 @@
 package com.example.isiuniversity.view;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityOptionsCompat;
@@ -44,15 +45,15 @@ import okhttp3.Response;
 public class HomeActivity extends AppCompatActivity {
     private String username;
     private String password;
-    protected LinearLayout homeLayout;
+    protected LinearLayout homeLayout,lnNoProcessClaim;
     private ProcessDefinitionTask ProcessDefinitionTaskObject = null;
     private ProcessDefinitionTask2 ProcessDefinitionTaskObject2 = null;
     private ClaimTask claimTask = null;
     private UnClaimTask unclaimTask = null;
     private UserGetInfo UserGetInfoObject = null;
     private CircularImageView profileIv;
-    private ImageButton btnSync;
-    private TextView nameTv,typeTv,emailTv,tabMyTaskIv,tabGroupIv;
+    private ImageButton btnSync,btnSettings;
+    private TextView nameTv,typeTv,emailTv,tabMyTaskIv,tabGroupIv,txtNameClaimTo;
     private LinearLayout lnTab;
     private TextView txtCount;
 
@@ -63,6 +64,7 @@ public class HomeActivity extends AppCompatActivity {
 
         profileIv = findViewById(R.id.profileIv);
         btnSync = findViewById(R.id.btnSync);
+        btnSettings = findViewById(R.id.btnSettings);
         nameTv = findViewById(R.id.nameTv);
         typeTv = findViewById(R.id.typeTv);
         emailTv = findViewById(R.id.emailTv);
@@ -70,6 +72,7 @@ public class HomeActivity extends AppCompatActivity {
         tabGroupIv = findViewById(R.id.tabGroupIv);
         lnTab = findViewById(R.id.lnTab);
         txtCount = findViewById(R.id.txtCount);
+        txtNameClaimTo = findViewById(R.id.txtNameClaimTo);
 
         SharedPreferences sharedPref = getSharedPreferences("ISIUniversityPerf", Context.MODE_PRIVATE);
         int auth = sharedPref.getInt("auth", 0);
@@ -81,6 +84,7 @@ public class HomeActivity extends AppCompatActivity {
             finish();
         }
         homeLayout = findViewById(R.id.home_layout);
+        lnNoProcessClaim = findViewById(R.id.lnNoProcessClaim);
         if(username.equals("agent")){
             profileIv.setImageResource(R.drawable.agent);
             lnTab.setVisibility(View.VISIBLE);
@@ -115,6 +119,14 @@ public class HomeActivity extends AppCompatActivity {
         UserGetInfoObject = new UserGetInfo();
         UserGetInfoObject.execute();
         profileIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(HomeActivity.this, AccountActivity.class);
+                intent1.putExtra("email",emailTv.getText());
+                startActivity(intent1);
+            }
+        });
+        btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent1 = new Intent(HomeActivity.this, AccountActivity.class);
@@ -256,7 +268,15 @@ public class HomeActivity extends AppCompatActivity {
                                 count++;
                             }
                         }
-                        txtCount.setText("Number of tasks= "+count);
+                        if(count==0){
+                            txtCount.setVisibility(View.GONE);
+                            lnNoProcessClaim.setVisibility(View.VISIBLE);
+                            txtNameClaimTo.setText("No Process Claim to "+username);
+                        } else {
+                            lnNoProcessClaim.setVisibility(View.GONE);
+                            txtCount.setVisibility(View.VISIBLE);
+                            txtCount.setText("Number of tasks= " + count);
+                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -287,7 +307,15 @@ public class HomeActivity extends AppCompatActivity {
                                 count++;
                             }
                         }
-                        txtCount.setText("Number of tasks= "+count);
+                        if(count==0){
+                            txtCount.setVisibility(View.GONE);
+                            lnNoProcessClaim.setVisibility(View.VISIBLE);
+                            txtNameClaimTo.setText("No Process Claim to "+username);
+                        } else {
+                            lnNoProcessClaim.setVisibility(View.GONE);
+                            txtCount.setVisibility(View.VISIBLE);
+                            txtCount.setText("Number of tasks= "+count);
+                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -306,8 +334,8 @@ public class HomeActivity extends AppCompatActivity {
                                 color_lighter = R.color.teal_700;
                                 icon = R.drawable.ic_assignment;
                             } else if (obj.getString("name").equals("Demande Verification Note")) {
-                                color = R.color.colorPrimary;
-                                color_lighter = R.color.colorSecond;
+                                color = R.color.colorSecond;
+                                color_lighter = R.color.colorThird;
                                 icon = R.drawable.ic_copy;
                             }
                             homeLayout.addView(generateSimpleCard(obj.getString("id"), color, color_lighter,
@@ -416,7 +444,16 @@ public class HomeActivity extends AppCompatActivity {
                                 count++;
                             }
                         }
-                        txtCount.setText("Number of tasks= "+count);
+                        if(count==0){
+                            txtCount.setVisibility(View.GONE);
+                            lnNoProcessClaim.setVisibility(View.VISIBLE);
+                            txtNameClaimTo.setText("No Process UnClaim");
+                        }
+                        else{
+                            lnNoProcessClaim.setVisibility(View.GONE);
+                            txtCount.setVisibility(View.VISIBLE);
+                            txtCount.setText("Number of tasks= "+count);
+                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -447,7 +484,16 @@ public class HomeActivity extends AppCompatActivity {
                                 count++;
                             }
                         }
-                        txtCount.setText("Number of tasks= "+count);
+                        if(count==0){
+                            txtCount.setVisibility(View.GONE);
+                            lnNoProcessClaim.setVisibility(View.VISIBLE);
+                            txtNameClaimTo.setText("No Process UnClaim to "+username);
+                        }
+                        else{
+                            lnNoProcessClaim.setVisibility(View.GONE);
+                            txtCount.setVisibility(View.VISIBLE);
+                            txtCount.setText("Number of tasks= "+count);
+                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -466,8 +512,8 @@ public class HomeActivity extends AppCompatActivity {
                                 color_lighter = R.color.teal_700;
                                 icon = R.drawable.ic_assignment;
                             } else if (obj.getString("name").equals("Demande Verification Note")) {
-                                color = R.color.colorPrimary;
-                                color_lighter = R.color.colorSecond;
+                                color = R.color.colorSecond;
+                                color_lighter = R.color.colorThird;
                                 icon = R.drawable.ic_copy;
                             }
                             homeLayout.addView(generateSimpleCard(obj.getString("id"), color, color_lighter,

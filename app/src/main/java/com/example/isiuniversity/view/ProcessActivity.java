@@ -56,6 +56,7 @@ public class ProcessActivity extends AppCompatActivity{
     private CheckBox c;
     private EditText ed;
     private String val;
+    private int k;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +74,7 @@ public class ProcessActivity extends AppCompatActivity{
 
         process_id = getIntent().getStringExtra("process_id");
         process_name = getIntent().getStringExtra("process_name");
-        color = getIntent().getIntExtra("color", R.color.colorPrimary);
+        color = getIntent().getIntExtra("color", R.color.colorSecond);
         icon = getIntent().getIntExtra("icon", R.drawable.ic_copy);
 
         LayoutView = findViewById(R.id.process_layout);
@@ -90,6 +91,7 @@ public class ProcessActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 sendRequest();
+                //finish();
             }
         });
     }
@@ -121,13 +123,13 @@ public class ProcessActivity extends AppCompatActivity{
                     json_string += variables;
                     json_string += ",\n\"businessKey\":\"" + username + "\"\n}";
                     Log.v("JSON Request Body", json_string);
-                } else if(process_name.equals("Preparer Attestation")){
+                } else if(k>7){
                     variables += "\"modifiernote\":{\"type\":\"Boolean\",\"value\":" + test + ",\"valueInfo\":{}}" + suffix;
                     json_string += variables;
                     json_string += ",\n\"businessKey\":\"" + username + "\"\n}";
                     Log.v("JSON Request Body", json_string);
                 } else {
-                    val=ed.getText().toString();
+                    val=ed.getText().toString()+"desc";
                     System.out.println("val="+val);
                     variables += "\"justificatif\":{\"type\":\"String\",\"value\":\"" + val + "\",\"valueInfo\":{}}" + suffix;
                     json_string += variables;
@@ -172,7 +174,8 @@ public class ProcessActivity extends AppCompatActivity{
                     json_string += variables;
                     json_string += ",\n\"businessKey\":\"" + username + "\"\n}";
                     Log.v("JSON Request Body", json_string);
-                } else {
+                }
+                else {
                     val=ed.getText().toString();
                     int num=12;
                     System.out.println("val="+val);
@@ -372,17 +375,17 @@ public class ProcessActivity extends AppCompatActivity{
                     String field;
                     String value;
                     String type;
-                    for (int i = fields.size() - 1; i >= 0; i--) {
-                        field = fields.get(i);
-                        value = values.get(i);
-                        type = types.get(i);
+                    for (k = fields.size() - 1; k >= 0; k--) {
+                        field = fields.get(k);
+                        value = values.get(k);
+                        type = types.get(k);
                         LinearLayout ll = (LinearLayout) findViewById(R.id.form_layout);
                         TextInputLayout til = new TextInputLayout(ProcessActivity.this);
                         til.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                         ed = new EditText(ProcessActivity.this);
                         c = new CheckBox(ProcessActivity.this);
                         TextView e = new TextView(ProcessActivity.this);
-                        ed.setId(i);
+                        ed.setId(k);
                         ed.setHint(field);
                         if(!value.equals("null")) {
                             ed.setEnabled(false);
@@ -413,17 +416,17 @@ public class ProcessActivity extends AppCompatActivity{
                     String field;
                     String value;
                     String type;
-                    for (int i = fields.size() - 1; i >= 0; i--) {
-                        field = fields.get(i);
-                        value = values.get(i);
-                        type = types.get(i);
+                    for (k = fields.size() - 1; k >= 0; k--) {
+                        field = fields.get(k);
+                        value = values.get(k);
+                        type = types.get(k);
                         LinearLayout ll = (LinearLayout) findViewById(R.id.form_layout);
                         TextInputLayout til = new TextInputLayout(ProcessActivity.this);
                         til.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                         ed = new EditText(ProcessActivity.this);
                         c = new CheckBox(ProcessActivity.this);
                         TextView e = new TextView(ProcessActivity.this);
-                        ed.setId(i);
+                        ed.setId(k);
                         ed.setHint(field);
                         if(!value.equals("null")) {
                             ed.setEnabled(false);
@@ -453,14 +456,14 @@ public class ProcessActivity extends AppCompatActivity{
                 else{
                     String field;
                     String type;
-                    for (int i = fields.size() - 1; i >= 0; i--) {
-                        field = fields.get(i);
-                        type = types.get(i);
+                    for (k = fields.size() - 1; k >= 0; k--) {
+                        field = fields.get(k);
+                        type = types.get(k);
                         LinearLayout ll = (LinearLayout) findViewById(R.id.form_layout);
                         TextInputLayout til = new TextInputLayout(ProcessActivity.this);
                         til.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                         EditText et = new EditText(ProcessActivity.this);
-                        et.setId(i);
+                        et.setId(k);
                         et.setHint(field);
                         int inputType = View.TEXT_ALIGNMENT_CENTER;
                         if (type.equals("String"))

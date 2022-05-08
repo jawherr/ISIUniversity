@@ -28,6 +28,7 @@ public class AccountActivity extends AppCompatActivity {
         SharedPreferences sharedPref = getSharedPreferences("ISIUniversityPerf", Context.MODE_PRIVATE);
         username = sharedPref.getString("username", null);
         tv_email.setText(getIntent().getStringExtra("email"));
+        tv_username.setText(username);
         if(username.equals("agent")){
             circularImageView.setImageResource(R.drawable.agent);
         } else if(username.equals("enseignant")){

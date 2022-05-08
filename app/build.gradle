@@ -39,12 +39,8 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     implementation 'com.mikhaellopez:circularimageview:4.3.0'
-    // Scalable Size Unit (support for different screen sizes)
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
-    implementation 'com.squareup.retrofit2:converter-scalars:2.4.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
     implementation 'androidx.cardview:cardview:1.0.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
