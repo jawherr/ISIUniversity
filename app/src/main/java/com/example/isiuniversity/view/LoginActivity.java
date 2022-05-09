@@ -57,15 +57,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         int auth = sharedPref.getInt("auth",0);
         if(auth==1)
         {
-            //Toast.makeText(this, "Authenticated", Toast.LENGTH_SHORT).show();
             Intent start = new Intent(LoginActivity.this, HomeActivity.class);
             startActivity(start);
             finish();
         }
-        /*else
-        {
-            Toast.makeText(this, "Unauthenticated", Toast.LENGTH_SHORT).show();
-        }*/
 
 
         setContentView(R.layout.activity_login);
@@ -160,16 +155,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         }
     }
 
+
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        return new CursorLoader(this,
-                Uri.withAppendedPath(ContactsContract.Profile.CONTENT_URI,
-                        ContactsContract.Contacts.Data.CONTENT_DIRECTORY), ProfileQuery.PROJECTION,
-
-                ContactsContract.Contacts.Data.MIMETYPE +
-                        " = ?", new String[]{ContactsContract.CommonDataKinds.Email
-                .CONTENT_ITEM_TYPE},
-                ContactsContract.Contacts.Data.IS_PRIMARY + " DESC");
+        return null;
     }
 
     @Override
@@ -194,8 +183,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         };
 
         int ADDRESS = 0;
-        int IS_PRIMARY = 1;
     }
+
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
         private final String mEmail;
@@ -263,7 +252,5 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
             mAuthTask = null;
             showProgress(false);
         }
-
-
     }
 }

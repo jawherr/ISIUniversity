@@ -44,10 +44,6 @@ public class IntroViewPagerAdapter extends PagerAdapter {
 
       return layoutScreen;
 
-
-
-
-
    }
 
    @Override
